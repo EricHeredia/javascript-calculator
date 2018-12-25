@@ -8,86 +8,44 @@ class App extends Component {
     this.state = {
       display: '0',
       numDisplay: '0',
-      isOping: false,
-      newTotal: ''
+      willClear: false,
+      newTotal: null
     }
+    this.clearScreen = this.clearScreen.bind(this)
     this.numberClick = this.numberClick.bind(this)
     this.operationClick = this.operationClick.bind(this)
     this.equalsClick = this.equalsClick.bind(this)
     this.decimalClick = this.decimalClick.bind(this)
-    this.clearScreen = this.clearScreen.bind(this)
   }
-  
+
+  clearScreen() {
+    this.setState({
+      display: '0',
+      numDisplay: '0',
+      willClear: false,
+      newTotal: null
+    })
+  }
+
   numberClick(e) {
-    if (this.state.isOping && this.state.newTotal) {
-      this.setState({
-        display: this.state.display + e.target.innerHTML,
-        numDisplay: e.target.innerHTML,
-        isOping: false,
-        newTotal: ''
-      })
-    } else if (this.state.display === '0' || this.state.newTotal) {
-      this.setState({
-        display: e.target.innerHTML,
-        numDisplay: e.target.innerHTML,
-        isOping: false,
-        newTotal: ''
-      })
-    } else if (this.state.numDisplay.indexOf('.') !== -1) {
-      this.setState({
-        display: this.state.display + e.target.innerHTML,
-        numDisplay: this.state.numDisplay + e.target.innerHTML,
-        isOping: false,
-        newTotal: '',
-      })
-    } else {
-      this.setState({
-        display: this.state.display + e.target.innerHTML,
-        numDisplay: e.target.innerHTML,
-        isOping: false,
-        newTotal: ''
-      })
-    }
-  }
-
-  operationClick(e) {
     if (this.state.display === '0') {
-      // Do nothing.
-    } else if (this.state.newTotal && this.state.display !== '0') {
-      this.setState({
-        display: this.state.newTotal + e.target.innerHTML,
-        isOping: true
-      })
-    } else if (this.state.display !== '0' && this.state.isOping === false) {
-      this.setState({
-        display: this.state.display + e.target.innerHTML,
-        isOping: true
-      })
-    } else if (this.state.display[this.state.display.length - 1] !== e.target.innerHTML) {
-      this.setState({
-        display: this.state.display.slice(0, -1) + e.target.innerHTML
-      })
-    }
-  }
-
-  equalsClick(e) {
-    if (this.state.display === '0') {
-      this.clearScreen()
-    } else if (this.state.display.indexOf('=') === -1 && !this.state.isOping) {
-      const total = math.eval(this.state.display)
-      this.setState({
-        display: this.state.display + e.target.innerHTML + total,
-        numDisplay: total,
-        newTotal: total
-      })
-    }
-  }
-
-  decimalClick(e) {
-    if (this.state.numDisplay.indexOf('.') === -1 && this.state.display === '0') {
       this.setState({
         display: e.target.innerHTML,
         numDisplay: e.target.innerHTML
+      })
+    } else if (this.state.newTotal === 'has') {
+      this.setState({hasDecimal: false})
+    } else if (this.state.newTotal !== null) {
+      this.setState({
+        display: e.target.innerHTML,
+        numDisplay: e.target.innerHTML,
+        newTotal: null
+      })
+    } else if (this.state.willClear === true) {
+      this.setState({
+        display: this.state.display + e.target.innerHTML,
+        numDisplay: e.target.innerHTML,
+        willClear: false
       })
     } else {
       this.setState({
@@ -96,12 +54,55 @@ class App extends Component {
       })
     }
   }
+  //FIX THIS
+  decimalClick(e) {
+    if (this.state.hasDecimal === true) {
+      this.setState({
+        newTotal: "has"
+      })
+    } else {
+      this.setState({
+        hasDecimal: true
+      })
+      this.numberClick(e)
+    }
+  }
 
-  clearScreen() {
-    this.setState({
-      display: '0',
-      numDisplay: '0'
-    })
+  operationClick(e) {
+    if (this.state.display === '0') {
+      this.setState({
+        display: '0',
+        hasDecimal: false
+      })
+    } else if (this.state.newTotal !== null) {
+      this.setState({
+        display: this.state.newTotal + e.target.innerHTML,
+        numDisplay: this.state.newTotal,
+        willClear: true,
+        newTotal: null,
+        hasDecimal: false
+      })
+    } else {
+      this.setState({
+        display: this.state.display + e.target.innerHTML,
+        willClear: true,
+        hasDecimal: false
+      })
+    }
+  }
+
+  equalsClick(e) {
+    if (this.state.display === '0' || this.state.display.search('=') !== -1) {
+      // Do nothing (turns off '=' button)
+    } else {
+      const total = math.eval(this.state.display)
+      this.setState({
+        display: this.state.display + e.target.innerHTML + total,
+        numDisplay: total,
+        newTotal: total,
+        hasDecimal: false
+      })
+    }
   }
 
   render() {
