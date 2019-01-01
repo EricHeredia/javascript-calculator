@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import '../javascript-calculator/App.css'
 import update from 'immutability-helper'
 import math from 'mathjs'
 
