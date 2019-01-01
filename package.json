@@ -1,6 +1,7 @@
 {
   "name": "javascript-calculator",
   "version": "0.1.0",
+  "homepage": "https://ericheredia.github.io/javascript-calculator",
   "private": true,
   "dependencies": {
     "immutability-helper": "^2.9.0",
