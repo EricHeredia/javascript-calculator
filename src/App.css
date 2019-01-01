@@ -1,3 +1,84 @@
-body {
-  margin-top: 10%;
+@import url(//db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital);
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 2px solid rgb(75, 75, 75);
+  width: 270px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+
+#full-inputDisplay {
+  height: 110px;
+  overflow: hidden;
+  font-family: 'DS-Digital';
+  border: 2px solid rgb(145, 145, 145);
+  background-color: rgb(14, 14, 14);
+}
+
+#display, #inputDisplay {
+  font-size: 60px;
+  font-weight: normal;
+  text-align: right;
+}
+
+#inputDisplay {
+  position: relative;
+  word-wrap: wrap;
+  top: -30px;
+  right: 3px;
+  font-size: 30px;
+  color: rgb(172, 0, 0);
+  height: 57px;
+}
+
+#display {
+  position: relative;
+  bottom: 74px;
+  right: 3px;
+  color: rgb(0, 150, 0);
+}
+
+#calcButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: 2px solid rgb(145, 145, 145);
+  grid-gap: 5px;
+  padding: 5px;
+  background-color: rgb(202, 202, 202);
+}
+
+#calcButtons button:focus {
+  outline: none;
+}
+
+#calcButtons button {
+  height: 50px;
+}
+
+#calcButtons #clear {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#calcButtons #equals {
+  height: auto;
+  grid-column-start: 4;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+#calcButtons #zero {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#clear {
+  background-color: rgb(151, 16, 16);
+}
+
+#equals {
+  background-color: rgb(47, 44, 235);
 }

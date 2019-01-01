@@ -2,9 +2,8 @@
   "name": "javascript-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ericheredia.github.io/javascript-calculator",
   "dependencies": {
-    "gh-pages": "^2.0.1",
+    "immutability-helper": "^2.9.0",
     "mathjs": "^5.4.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -14,8 +13,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
