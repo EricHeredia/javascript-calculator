@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import update from 'immutability-helper'
 import math from 'mathjs'
 
@@ -163,7 +163,6 @@ class App extends Component {
           <div>
             <h1
               id="display"
-              maxlength="10"
             >
             {this.state.display}
             </h1>
