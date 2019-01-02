@@ -7,15 +7,20 @@
   src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff") format("woff"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7") format("svg");
 }
 
+#border {
+  border: 2px solid rgb(75, 75, 75);
+  border-radius: 3px;
+}
 
 .App {
   display: grid;
   grid-template-columns: 1fr;
-  border: 2px solid rgb(75, 75, 75);
   width: 270px;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
+  box-shadow: 4px 4px 4px rgb(59, 16, 57);
+  border-radius: 5px;
 }
 
 #full-inputDisplay {
@@ -38,7 +43,7 @@
   top: -30px;
   right: 3px;
   font-size: 30px;
-  color: rgb(172, 0, 0);
+  color: rgb(170, 5, 5);
   height: 57px;
 }
 
@@ -66,6 +71,7 @@
   height: 50px;
   font-size: 25px;
   font-family: 'Comfortaa';
+  border-radius: 3px;
 }
 
 #calcButtons #clear {
@@ -86,7 +92,7 @@
 }
 
 #clear {
-  background-color: rgb(151, 16, 16);
+  background-color: rgb(126, 2, 43);
 }
 
 #equals {

@@ -151,6 +151,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div id="border">
         <div id="full-inputDisplay">
           <div>
             <p
@@ -306,6 +307,7 @@ class App extends Component {
           .
           </button>
         </div>
+      </div>
       </div>
     );
   }
