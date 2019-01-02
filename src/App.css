@@ -1,5 +1,12 @@
-@import url('https://db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital');
+/*@import url('https://db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital');
+*/
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@font-face {
+  font-family: "Digital";
+  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot");
+  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff") format("woff"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7") format("svg");
+}
+
 
 .App {
   display: grid;
@@ -14,7 +21,7 @@
 #full-inputDisplay {
   height: 110px;
   overflow: hidden;
-  font-family: 'DS-Digital';
+  font-family: 'Digital';
   border: 2px solid rgb(145, 145, 145);
   background-color: rgb(14, 14, 14);
 }
