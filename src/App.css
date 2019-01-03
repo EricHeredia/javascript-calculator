@@ -39,8 +39,11 @@
 
 #inputDisplay {
   position: relative;
-  word-wrap: wrap;
-  top: -30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 260px;
+  top: -29px;
   right: 3px;
   font-size: 30px;
   color: rgb(170, 5, 5);
@@ -49,7 +52,11 @@
 
 #display {
   position: relative;
-  bottom: 74px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 260px;
+  bottom: 73px;
   right: 3px;
   color: rgb(0, 150, 0);
 }
